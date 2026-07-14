@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "bb4e028e2434ae59",
+    "type": "split",
+    "children": [
+      {
+        "id": "d720958d5ae09888",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "60430794ab9f8c5e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00_Career-Ontology/04_Gaps/필요한 정보 질문지.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "필요한 정보 질문지"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e7f64d0638d55de7",
+    "type": "split",
+    "children": [
+      {
+        "id": "bf6bb9a5218f23e7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "981fb200629ef711",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "7ebb09e14e071b6c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "45f7edeeceb57b8d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c29dc2aed1a15425",
+    "type": "split",
+    "children": [
+      {
+        "id": "757bc05027b633ea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a48e19b6a517d4e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "00_Career-Ontology/04_Gaps/필요한 정보 질문지.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "필요한 정보 질문지 의 백링크"
+            }
+          },
+          {
+            "id": "78e7e0e18ffd877b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "00_Career-Ontology/04_Gaps/필요한 정보 질문지.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "필요한 정보 질문지 의 나가는 링크"
+            }
+          },
+          {
+            "id": "efb61db337cd5ab8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "e21a50369e2eb0f3",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "05d99a44f4110720",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "00_Career-Ontology/04_Gaps/필요한 정보 질문지.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "필요한 정보 질문지 의 개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "60430794ab9f8c5e",
+  "lastOpenFiles": [
+    "00_Career-Ontology/04_Gaps/추가로 필요한 정보.md",
+    "00_Career-Ontology/04_Gaps/필요한 정보 질문지.md",
+    "00_Career-Ontology/01_Concepts/API 이해.md",
+    "README.md",
+    "00_Career-Ontology/01_Concepts/문제 해결.md",
+    "00_Career-Ontology/01_Concepts/문서화 발표.md",
+    "00_Career-Ontology/01_Concepts/데이터 품질 관리.md",
+    "00_Career-Ontology/01_Concepts/운영 개선.md",
+    "00_Career-Ontology/01_Concepts/기업 협업.md",
+    "00_Career-Ontology/01_Concepts/로우코드 구현.md",
+    "00_Career-Ontology/01_Concepts/인프라 이해.md",
+    "00_Career-Ontology/01_Concepts/AI 활용.md",
+    "00_Career-Ontology/01_Concepts/데이터 모델링.md",
+    "00_Career-Ontology/01_Concepts/프론트 구현.md",
+    "00_Career-Ontology/01_Concepts/백엔드 구현.md",
+    "00_Career-Ontology/01_Concepts/개발 협업.md",
+    "00_Career-Ontology/01_Concepts/디자인 시스템 이해.md",
+    "00_Career-Ontology/01_Concepts/UX UI.md",
+    "00_Career-Ontology/01_Concepts/사용자 리서치.md",
+    "00_Career-Ontology/01_Concepts/문제정의.md",
+    "00_Career-Ontology/01_Concepts/서비스 기획.md",
+    "00_Career-Ontology/01_Concepts/PM.md",
+    "00_Career-Ontology/01_Concepts/AX.md",
+    "00_Career-Ontology/03_Templates/포트폴리오 구성 템플릿.md",
+    "00_Career-Ontology/03_Templates/JD 분석 템플릿.md",
+    "00_Career-Ontology/02_JD_Playbooks/UX UI JD 대응.md",
+    "00_Career-Ontology/04_Gaps",
+    "00_Career-Ontology/03_Templates",
+    "00_Career-Ontology/02_JD_Playbooks",
+    "00_Career-Ontology/01_Concepts",
+    "00_Career-Ontology"
+  ]
+}

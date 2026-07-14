@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT 취업이 안 되는 진짜 이유 - 촬영 슬라이드</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .slide {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .slide.active { display: flex; }
+
+  /* 타이틀 슬라이드 */
+  .slide-title {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  }
+  .slide-title h1 {
+    font-size: 4.5vw;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.3;
+    text-align: center;
+    margin-bottom: 2vh;
+  }
+  .slide-title .subtitle {
+    font-size: 2vw;
+    color: #8b949e;
+    font-weight: 400;
+  }
+  .slide-title .ep {
+    font-size: 1.4vw;
+    color: #58a6ff;
+    margin-top: 3vh;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* 파트 구분 슬라이드 */
+  .slide-part {
+    background: linear-gradient(135deg, #0d1117 0%, #1a1e2e 100%);
+  }
+  .slide-part .part-number {
+    font-size: 1.2vw;
+    color: #58a6ff;
+    letter-spacing: 0.2em;
+    margin-bottom: 2vh;
+    text-transform: uppercase;
+  }
+  .slide-part h2 {
+    font-size: 3.5vw;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 80%;
+  }
+  .slide-part .part-sub {
+    font-size: 1.6vw;
+    color: #8b949e;
+    margin-top: 2vh;
+    text-align: center;
+    max-width: 70%;
+    line-height: 1.6;
+  }
+
+  /* 이미지 슬라이드 */
+  .slide-image {
+    background: #f5f5f5;
+    padding: 3vh 4vw;
+  }
+  .slide-image .slide-header {
+    position: absolute;
+    top: 2vh;
+    left: 4vw;
+    right: 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .slide-image .slide-header .part-label {
+    font-size: 0.9vw;
+    color: #58a6ff;
+    background: #0d1117;
+    padding: 0.4vh 1.2vw;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+  }
+  .slide-image .slide-header .page-num {
+    font-size: 0.9vw;
+    color: #666;
+  }
+  .slide-image .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    max-height: 78vh;
+    margin-top: 5vh;
+  }
+  .slide-image .img-container img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .slide-image .caption {
+    position: absolute;
+    bottom: 3vh;
+    left: 4vw;
+    right: 4vw;
+    font-size: 1.3vw;
+    color: #333;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* 듀얼 이미지 */
+  .slide-image .img-container.dual {
+    display: flex;
+    gap: 2vw;
+    max-width: 95%;
+  }
+  .slide-image .img-container.dual img {
+    max-width: 48%;
+    max-height: 68vh;
+  }
+
+  /* 텍스트 슬라이드 */
+  .slide-text {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    padding: 5vh 8vw;
+  }
+  .slide-text .quote {
+    font-size: 2.8vw;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 80%;
+    color: #e6edf3;
+  }
+  .slide-text .quote em {
+    color: #58a6ff;
+    font-style: normal;
+  }
+  .slide-text .items {
+    max-width: 70%;
+    margin-top: 3vh;
+  }
+  .slide-text .items li {
+    font-size: 1.8vw;
+    line-height: 2;
+    color: #c9d1d9;
+    list-style: none;
+    padding-left: 2vw;
+    position: relative;
+  }
+  .slide-text .items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #58a6ff;
+    border-radius: 50%;
+  }
+
+  /* 반전 강조 슬라이드 */
+  .slide-highlight {
+    background: linear-gradient(135deg, #1a1040 0%, #0d1117 100%);
+  }
+  .slide-highlight .hl-text {
+    font-size: 3vw;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 75%;
+  }
+  .slide-highlight .hl-text .accent {
+    color: #f0883e;
+    display: inline;
+  }
+
+  /* 하단 네비게이션 */
+  .nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    z-index: 100;
+  }
+  .nav-bar .progress {
+    height: 100%;
+    background: #58a6ff;
+    transition: width 0.3s ease;
+  }
+
+  /* 슬라이드 번호 표시 */
+  .slide-counter {
+    position: fixed;
+    bottom: 1.5vh;
+    right: 2vw;
+    font-size: 0.8vw;
+    color: rgba(255,255,255,0.3);
+    z-index: 101;
+  }
+  .slide-image .slide-counter-inner {
+    color: rgba(0,0,0,0.25);
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== SLIDE 1: 타이틀 ========== -->
+<div class="slide slide-title active" data-idx="1">
+  <div class="ep">IT 인사이드아웃 EP.3</div>
+  <h1>IT 회사 취업이<br>안 되는 진짜 이유</h1>
+  <div class="subtitle">경기가 아니라, 입구가 바뀌고 있습니다</div>
+</div>
+
+<!-- ========== SLIDE 2: 파트1 타이틀 ========== -->
+<div class="slide slide-part" data-idx="2">
+  <div class="part-number">Part 1</div>
+  <h2>진짜 취업이 안 되고 있는 구간</h2>
+  <div class="part-sub">청년 고용 지표 하락은 체감이 아닌 데이터 이슈</div>
+</div>
+
+<!-- ========== SLIDE 3: 뉴스 헤드라인 - 취업 빙하기 ========== -->
+<div class="slide slide-image" data-idx="3">
+  <div class="slide-header">
+    <span class="part-label">PART 1 - 문제 제기</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.54.16.png" alt="취업 빙하기 헤드라인">
+  </div>
+  <div class="caption">'쉬었음' 치솟고, 'AI 대체' 점점 늘고… 청년들 '취업 빙하기'</div>
+</div>
+
+<!-- ========== SLIDE 4: AI가 초급 개발자 대체 비상상황 ========== -->
+<div class="slide slide-image" data-idx="4">
+  <div class="slide-header">
+    <span class="part-label">PART 1 - 문제 제기</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.55.03.png" alt="AI 초급 개발자 대체">
+  </div>
+  <div class="caption">"AI가 초급 개발자 대체 비상상황" — 일자리 직격탄 맞은 청년들</div>
+</div>
+
+<!-- ========== SLIDE 5: 20대 취업자 수 추이 ========== -->
+<div class="slide slide-image" data-idx="5">
+  <div class="slide-header">
+    <span class="part-label">PART 1 - 문제 제기</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.55.34.png" alt="20대 취업자 수 추이">
+  </div>
+  <div class="caption">20대 취업자 수: 377만 → 365만 → 326만 (3년간 51만명 감소)</div>
+</div>
+
+<!-- ========== SLIDE 6: 산업별 취업자 수 증감 ========== -->
+<div class="slide slide-image" data-idx="6">
+  <div class="slide-header">
+    <span class="part-label">PART 1 - 문제 제기</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.55.21.png" alt="산업별 취업자 수 증감">
+  </div>
+  <div class="caption">AI 밀접 업종에서 일자리 감소가 집중 — 전문·과학·기술서비스업 -10만5천</div>
+</div>
+
+<!-- ========== SLIDE 7: 파트2 타이틀 ========== -->
+<div class="slide slide-part" data-idx="7">
+  <div class="part-number">Part 2</div>
+  <h2>단순 불황으로<br>보기 어려운 구간</h2>
+  <div class="part-sub">기업은 채용을 멈춘 게 아니라, 채용 방식을 바꾸는 중</div>
+</div>
+
+<!-- ========== SLIDE 8: 전문직·IT 감소 2030 ========== -->
+<div class="slide slide-image" data-idx="8">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.55.41.png" alt="전문직 IT 감소 2030">
+  </div>
+  <div class="caption">AI에 청년일자리 흔들? — 전문직·IT 감소 대부분이 20~30대</div>
+</div>
+
+<!-- ========== SLIDE 9: 국가데이터처 분석 본문 ========== -->
+<div class="slide slide-image" data-idx="9">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.56.04.png" alt="데이터처 분석">
+  </div>
+  <div class="caption">전문·과학·기술 + 정보통신 취업자 14만7천명 감소, 감소분의 89%가 20~30대</div>
+</div>
+
+<!-- ========== SLIDE 10: 연령별 취업자 수 표 ========== -->
+<div class="slide slide-image" data-idx="10">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.56.18.png" alt="연령별 취업자 수 표">
+  </div>
+  <div class="caption">연도별 전문·과학·기술서비스업 / 정보통신업 연령대별 취업자 수</div>
+</div>
+
+<!-- ========== SLIDE 11: 반전 문장 ========== -->
+<div class="slide slide-highlight" data-idx="11">
+  <div class="hl-text">
+    "직무가 사라지는 것보다,<br><span class="accent">입문 사다리</span>가<br>먼저 약해지고 있다."
+  </div>
+</div>
+
+<!-- ========== SLIDE 12: 신입 개발자 사라진다 + 채용 비중 차트 ========== -->
+<div class="slide slide-image" data-idx="12">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container dual">
+    <img src="file:///Users/lucy/Documents/스크린샷/SSC_20260106173033_O2.jpg.webp" alt="신입 개발자 사라진다">
+    <img src="file:///Users/lucy/Documents/스크린샷/2025103012525087872_1761796370.jpg" alt="직무별 신입직 채용 비중">
+  </div>
+  <div class="caption">AI 능숙한 경력자 찾는 기업들 — 소프트웨어 개발 신입 채용 비중 46.5% → 37.4%</div>
+</div>
+
+<!-- ========== NEW: 원티드랩 2026 채용 트렌드 ========== -->
+<div class="slide slide-image" data-idx="12b">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container dual">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-06 오전 10.38.55.png" alt="원티드랩 채용 트렌드 헤드라인">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-06 오전 10.39.10.png" alt="원티드랩 서베이 본문">
+  </div>
+  <div class="caption">153개 기업 인사담당자 서베이 — 4~7년차 경력직 49.7%, 신입 12.4% (꼴찌)</div>
+</div>
+
+<!-- ========== NEW: 인재상 변화 - AI 활용 역량 필수 ========== -->
+<div class="slide slide-image" data-idx="12c">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-06 오전 10.39.39.png" alt="인재상 변화 AI 활용 역량">
+  </div>
+  <div class="caption">2026 인재상 — 직무 전문 역량(64.7%), AI·데이터 활용 역량(24.2%)이 필수 요건으로 부상</div>
+</div>
+
+<!-- ========== NEW: AI 채용 스킬 비중 추이 차트 ========== -->
+<div class="slide slide-image" data-idx="12d">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/AI_01.png" alt="AI 채용 스킬 비중 추이">
+  </div>
+  <div class="caption">전체 공고 중 AI 스킬 요구 비중 — 2017년 이후 급등, 생성형 AI(0.22%)도 빠르게 부상</div>
+</div>
+
+<!-- ========== NEW: 산업별 AI 채용공고 (2023 vs 2024) ========== -->
+<div class="slide slide-image" data-idx="12e">
+  <div class="slide-header">
+    <span class="part-label">PART 2 - 본질 분석</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/AI_05.png" alt="산업별 AI 채용공고">
+  </div>
+  <div class="caption">AI 채용은 IT(+79.6%)뿐 아니라 제조(+30.2%), 금융(+16.2%), 소매(+102%) 전 산업으로 확산</div>
+</div>
+
+<!-- ========== SLIDE 13: 파트3 타이틀 ========== -->
+<div class="slide slide-part" data-idx="13">
+  <div class="part-number">Part 3</div>
+  <h2>AI는 누구를<br>먼저 압박하는가</h2>
+  <div class="part-sub">시니어 전체 대체보다, 주니어 입문 업무가 먼저 줄어든다</div>
+</div>
+
+<!-- ========== SLIDE 14: 한은 보고서 헤드라인 ========== -->
+<div class="slide slide-image" data-idx="14">
+  <div class="slide-header">
+    <span class="part-label">PART 3 - 반전</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.56.32.png" alt="한은 보고서">
+  </div>
+  <div class="caption">한은: "AI가 청년 일자리 빼앗고, 50대 일자리는 늘렸다"</div>
+</div>
+
+<!-- ========== SLIDE 15: 한은 보고서 상세 ========== -->
+<div class="slide slide-image" data-idx="15">
+  <div class="slide-header">
+    <span class="part-label">PART 3 - 반전</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.56.44.png" alt="한은 보고서 상세">
+  </div>
+  <div class="caption">3년간 청년층 일자리 21만1000개 감소, 98.6%가 AI 고노출 업종</div>
+</div>
+
+<!-- ========== SLIDE 16: 학력별 대체 가능성 ========== -->
+<div class="slide slide-image" data-idx="16">
+  <div class="slide-header">
+    <span class="part-label">PART 3 - 반전</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.56.51.png" alt="학력별 대체 가능성">
+  </div>
+  <div class="caption">석사·대졸자가 가장 쉽게 대체 — AI 활용 업무시간 감소율: 석사 7.6% > 4년제 5.0%</div>
+</div>
+
+<!-- ========== SLIDE 17: 3년간 20만개 + AI 노출도 차트 ========== -->
+<div class="slide slide-image" data-idx="17">
+  <div class="slide-header">
+    <span class="part-label">PART 3 - 반전</span>
+  </div>
+  <div class="img-container dual">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.56.58.png" alt="3년간 20만개">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.57.11.png" alt="AI 노출도별 고용 증감">
+  </div>
+  <div class="caption">15~29세: -21.1만 vs 30대: +19.4만, 50대: +20.9만 — 타격은 청년에 집중</div>
+</div>
+
+<!-- ========== SLIDE 18: 파트4 타이틀 ========== -->
+<div class="slide slide-part" data-idx="18">
+  <div class="part-number">Part 4</div>
+  <h2>그럼 누가<br>유리해지는가</h2>
+  <div class="part-sub">AI를 많이 아는 사람보다, 실제 업무에 붙여본 사람이 유리</div>
+</div>
+
+<!-- ========== SLIDE 19: AI 노동력 대체 조짐 본문 ========== -->
+<div class="slide slide-image" data-idx="19">
+  <div class="slide-header">
+    <span class="part-label">PART 4 - 해석 확장</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-04 오후 6.54.38.png" alt="AI 노동력 대체 조짐">
+  </div>
+  <div class="caption">"기초 분석이나 반복 업무를 중심으로 직무 구조가 변화하는 영향이 반영된 것으로 보인다"</div>
+</div>
+
+<!-- ========== SLIDE 20: AI 노출도별 임금 추이 ========== -->
+<div class="slide slide-image" data-idx="20">
+  <div class="slide-header">
+    <span class="part-label">PART 4 - 해석 확장</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/2025103012525087872_1761796370.jpg" alt="AI 노출도별 임금">
+  </div>
+  <div class="caption">AI 노출도별 임금 추이 — 청년층은 정체, 30~50대 AI 고노출 직군은 임금 상승</div>
+</div>
+
+<!-- ========== NEW: 산업·기능별 AI 활용도 히트맵 ========== -->
+<div class="slide slide-image" data-idx="20b">
+  <div class="slide-header">
+    <span class="part-label">PART 4 - 해석 확장</span>
+  </div>
+  <div class="img-container">
+    <img src="file:///Users/lucy/Documents/스크린샷/AI_06.png" alt="산업 기능별 AI 활용도">
+  </div>
+  <div class="caption">기술 분야 IT(48%)·소프트웨어 엔지니어링(45%)이 최고 — AI를 실무에 붙여본 사람이 유리</div>
+</div>
+
+<!-- ========== SLIDE 21: 반전 강조 문장 ========== -->
+<div class="slide slide-highlight" data-idx="21">
+  <div class="hl-text">
+    "AI는 공부로 익히는 것보다,<br><span class="accent">귀찮은 일을 줄여보며</span><br>익히는 게 빠르다."
+  </div>
+</div>
+
+<!-- ========== SLIDE 22: 파트5 타이틀 ========== -->
+<div class="slide slide-part" data-idx="22">
+  <div class="part-number">Part 5</div>
+  <h2>지금 무엇을<br>해야 하는가</h2>
+  <div class="part-sub">툴 공부가 아니라, 업무 단위 자동화 실험이 목적</div>
+</div>
+
+<!-- ========== SLIDE 23: 대상별 액션 ========== -->
+<div class="slide slide-text" data-idx="23">
+  <div class="quote" style="font-size:2.2vw; margin-bottom:4vh;">대상별 행동 전략</div>
+  <ul class="items">
+    <li><strong>학생</strong> — 포트폴리오를 결과물 전시가 아니라 문제 해결 흐름 중심으로</li>
+    <li><strong>취준생</strong> — "AI로 만들었다"보다 "어떻게 붙이고 무엇을 검수했는지"</li>
+    <li><strong>현직자</strong> — 반복 업무 1개를 선정해 자동화 실험 루프 구축</li>
+    <li><strong>팀리드</strong> — AI 활용 역량 평가 기준 수립 (정확도, 검수력, 재현성)</li>
+  </ul>
+</div>
+
+<!-- ========== SLIDE 24: 엔딩 ========== -->
+<div class="slide slide-highlight" data-idx="24">
+  <div class="hl-text">
+    "가장 위험한 사람은<br>실력이 없는 사람이 아니라,<br><span class="accent">하던 일만 계속하는 사람</span>이다."
+  </div>
+</div>
+
+<!-- ========== NEW: 잡코리아 연봉 차트 + 헤드라인 ========== -->
+<div class="slide slide-image" data-idx="24b">
+  <div class="slide-header">
+    <span class="part-label">엔딩 - B2B 다리</span>
+  </div>
+  <div class="img-container dual">
+    <img src="file:///Users/lucy/Documents/스크린샷/NISI20260220_0002066383_web.jpg" alt="잡코리아 연봉 차트">
+    <img src="file:///Users/lucy/Documents/스크린샷/스크린샷 2026-05-06 오전 10.41.56.png" alt="AI 데이터 역량 연봉 격차">
+  </div>
+  <div class="caption">AI·개발 직무 연봉 4,947만원 (21개 직무 1위) — AI 활용 역량이 연봉 격차를 가른다</div>
+</div>
+
+<!-- ========== SLIDE 25: 클로징 ========== -->
+<div class="slide slide-title" data-idx="25">
+  <div class="ep">IT 인사이드아웃 EP.3</div>
+  <h1 style="font-size:3vw;">이제 경쟁력은 스펙보다,<br>AI를 실제 일에 붙여본<br>경험에서 갈립니다.</h1>
+</div>
+
+<!-- 프로그레스 바 -->
+<div class="nav-bar"><div class="progress" id="progress"></div></div>
+<div class="slide-counter" id="counter"></div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  const total = slides.length;
+
+  function showSlide(idx) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
+    current = idx;
+    document.getElementById('progress').style.width = ((idx + 1) / total * 100) + '%';
+    document.getElementById('counter').textContent = (idx + 1) + ' / ' + total;
+    // 이미지 슬라이드에선 카운터 색 변경
+    const counter = document.getElementById('counter');
+    if (slides[idx].classList.contains('slide-image')) {
+      counter.style.color = 'rgba(0,0,0,0.25)';
+    } else {
+      counter.style.color = 'rgba(255,255,255,0.3)';
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      if (current < total - 1) showSlide(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      if (current > 0) showSlide(current - 1);
+    } else if (e.key === 'Home') {
+      showSlide(0);
+    } else if (e.key === 'End') {
+      showSlide(total - 1);
+    } else if (e.key === 'f' || e.key === 'F') {
+      document.documentElement.requestFullscreen?.();
+    }
+  });
+
+  // 터치/클릭 지원
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (diff < -50 && current < total - 1) showSlide(current + 1);
+    if (diff > 50 && current > 0) showSlide(current - 1);
+  });
+
+  // 클릭: 오른쪽 반 → 다음, 왼쪽 반 → 이전
+  document.addEventListener('click', e => {
+    if (e.clientX > window.innerWidth / 2) {
+      if (current < total - 1) showSlide(current + 1);
+    } else {
+      if (current > 0) showSlide(current - 1);
+    }
+  });
+
+  showSlide(0);
+</script>
+</body>
+</html>
