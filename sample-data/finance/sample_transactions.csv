@@ -1,0 +1,13 @@
+date,description,amount,type,category,memo
+2026-07-01,월세,-500000,expense,housing,고정비
+2026-07-03,통신비,-69000,expense,telecom,고정비
+2026-07-05,스타벅스,-6500,expense,food,카페
+2026-07-06,지하철,-1450,expense,transport,면접 이동
+2026-07-08,포트폴리오 템플릿,-22000,expense,portfolio,취준 비용
+2026-07-10,자격증 접수비,-45000,expense,education,취준 필수비
+2026-07-12,구독서비스,-14900,expense,subscription,반복 구독
+2026-07-15,마트,-62000,expense,food,생활비
+2026-07-18,면접복 세탁,-12000,expense,job_search,면접 준비
+2026-07-22,카페,-7800,expense,food,스터디
+2026-07-25,인턴급여,1800000,income,income,수입
+2026-07-28,병원,-18000,expense,healthcare,의료
