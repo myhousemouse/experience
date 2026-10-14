@@ -1,0 +1,6 @@
+# Archive artifacts are binary; preserve bytes and avoid oversized text diffs.
+*.pdf binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.zip binary
