@@ -1,0 +1,35 @@
+{
+  "checked_date": "2026-10-15",
+  "ppt_slides": 27,
+  "survey_rows": 138,
+  "key_question_valid_n": 63,
+  "detail_experience_yes": 60,
+  "detail_experience_no": 3,
+  "experience_yes_detail_blank": 6,
+  "recomputed_matches": true,
+  "question_counts_sum_matches": true,
+  "local_links_valid": true,
+  "review_code_read_not_executed": true,
+  "review_csv_not_provided": true,
+  "review_low_rating_range": [
+    1,
+    2
+  ],
+  "review_high_rating_range": [
+    4,
+    5
+  ],
+  "figma_access": "ERR_TUNNEL_CONNECTION_FAILED for all four links",
+  "ui_png_files": 33,
+  "ui_groups": 8,
+  "entry_screens": 1,
+  "all_png_decodable": true,
+  "ui_image_links_valid": true,
+  "figma_interactions_executed": false,
+  "notion_exports_read": true,
+  "live_comment_markers_on_seekbar": "explicitly unimplemented in M01",
+  "clickable_prototype": "confirmed by user; analyst did not execute",
+  "selection_basis": "review crawling and user research confirmed by user",
+  "specific_teammate_feedback_causality": "not established from the excerpt",
+  "expected_effects": "documented in PPT; not measured actual impact"
+}
