@@ -1,0 +1,52 @@
+{
+  "input_characters": 3874,
+  "output_characters": 3799,
+  "change_rate_supplied_metric": 0.04105304313827707,
+  "change_rate_levenshtein": 0.06556530717604543,
+  "targeted_rule_counts": {
+    "A-7": {
+      "before": 1,
+      "after": 0
+    },
+    "C-11": {
+      "before": 12,
+      "after": 0
+    },
+    "D-8": {
+      "before": 1,
+      "after": 0
+    },
+    "I-3": {
+      "before": 2,
+      "after": 0
+    },
+    "D-11": {
+      "before": 1,
+      "after": 0
+    },
+    "C-8": {
+      "before": 3,
+      "after": 0
+    }
+  },
+  "verification": "6/6 자체 점검 통과: 수치·고유명사·약어 대조, 의미·서법·내용 앵커·장르·register 수동 검토, 변경률 한도 확인. 독립 정밀 검증과 구분.",
+  "grade": "B",
+  "grade_reason": "보수적 윤문, 잔존 주요 S1 0건 수동 검토. A 권장 변경률(10~25%)보다 작아 B로 보고. 독립 strict 검증은 미실행.",
+  "highlights": [
+    {
+      "id": "A-7",
+      "before": "같은 기준을 가지고 있었다.",
+      "after": "같은 기준으로 생각했다."
+    },
+    {
+      "id": "D-8",
+      "before": "이때까지도 내가 주로 보는 것은 화면과 학습 흐름이었다.",
+      "after": "이때까지도 나는 화면과 학습 흐름을 주로 봤다."
+    },
+    {
+      "id": "I-3",
+      "before": "출시 전에 반드시 막아야 할 문제와 이후 더 살펴볼 항목을 구분할 기준이 필요하다는 뜻이었다.",
+      "after": "다만 출시 전에 반드시 막아야 할 문제와 이후 더 살펴볼 항목을 구분할 기준이 필요했다."
+    }
+  ]
+}
