@@ -1,0 +1,19 @@
+{
+  "task": "사용자 지정 합니다체 전환 후 humanize-korean 국소 점검",
+  "original_characters": 3799,
+  "formal_input_characters": 3964,
+  "output_characters": 3963,
+  "register_conversion_and_edit_rate": 2.86,
+  "humanize_only_change_rate": 0.21,
+  "register_override": "사용자의 명시적 합니다체 요청을 스킬의 원문 register 보존 기본값보다 우선 적용",
+  "rules_reviewed": {
+    "A-18": "관형구 어순 1곳 조정",
+    "C-11": "연결어미 뒤 쉼표 추가하지 않음",
+    "C-8": "기존 효과적인 대조를 추가하지 않음",
+    "I-3": "결산형 형식명사 추가하지 않음",
+    "D-11": "정형적 미래 도입구 추가하지 않음"
+  },
+  "self_checks": "6/6 수동 점검; 고유명사·수치 대조, 의미·서법·장르·사용자 지정 register 보존, 윤문 변경률 한도·표현 주입 검토",
+  "grade": "B",
+  "reason": "합니다체 전환이 주 작업이며 순수 윤문은 최소 수정. 독립 정밀 검증은 미실행."
+}
